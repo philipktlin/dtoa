@@ -88,7 +88,7 @@ inline void DigitGen(const DiyFp& W, const DiyFp& Mp, uint64_t delta, char* buff
 // Returns length and k.
 #[inline]
 unsafe fn digit_gen(w: DiyFp, mp: DiyFp, mut delta: $sigty, buffer: *mut u8, mut k: isize) -> (isize, isize) {
-    static POW10: [$sigty; 10] = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000 ];
+    const POW10: [$sigty; 10] = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000 ];
     let one = DiyFp::new(1 << -mp.e, mp.e);
     let wp_w = mp - w;
     let mut p1 = (mp.f >> -one.e) as u32;
